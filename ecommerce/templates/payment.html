@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if payment %}
+<form action="{% url 'cart:payment_success' %}" method="POST">
+    {% csrf_token %}
+
+    <script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="rzp_test_Rn84sLoGtHBMCk"
+
+        data-amount="{{ payment.amount }}"
+        data-currency="INR"
+        data-order_id="{{ payment.id }}"
+
+        data-buttontext="Pay Now"
+        data-name="Your Shop Name"
+        data-description="Secure Online Payment"
+
+        data-prefill.name="{{ user.username }}"
+        data-prefill.email="{{ user.email }}"
+        data-theme.color="#F37254"
+    ></script>
+
+    <input type="hidden" name="hidden"/>
+</form>
+
+{% else %}
+<h2>Your Order is Placed Successfully</h2>
+<a href="{% url 'cart:orders' %}" class="btn btn-success mt-3">View Orders</a>
+{% endif %}
+
+{% endblock %}

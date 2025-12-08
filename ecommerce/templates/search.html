@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Search</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Search Results</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container w-50 p-5 border border-2 shadow mt-5">
+    <h1 class="text-center">Search Results</h1>
+
+    <div class="products-box">
+        <div class="container">
+               <h2 class="text-center">you have searched for <span>{{query}}</span></h2>
+            {% if products %}
+            <div class="row special-list">
+
+                {% for i in products %}
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+
+                            <img src="{{ i.image.url }}" class="img-fluid" alt="Image">
+
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+
+                                <!-- Corrected link using i.id -->
+                                <a class="cart" href="{% url 'shop:productdetails' i.id %}">Details</a>
+                            </div>
+
+                        </div>
+
+                        <div class="why-text">
+                            <h4>{{ i.name }}</h4>
+                            <h5>{{ i.price }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+            <h2 class="text-danger fw-bold text-center">No Results Found</h2>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
