@@ -1,0 +1,31 @@
+#1 What is Django?What are the built in functionalities provided by Django?
+
+
+#2.Explain MVT Architecture of Django
+
+#3.What is ORM feature of Django
+
+#4.What do you mean by csrf_token
+
+
+#5.What is render function?
+
+#6.How does Django handle User Authentication
+
+#7.What is the role of Django admin tool
+
+#8What is Jinja2 Templating
+
+#9What is the difference between context and context processors
+
+#10.What is Django middleware
+
+#11.What databases are supported in Django
+
+#12.Explain Q objects in ORM queries?
+
+#13What is Model Relationship?What are the different model relationships in django
+
+#14.Explain the purpose Djangomigrations
+
+#15.What do you mean by Django Lookups

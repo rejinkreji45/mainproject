@@ -107,7 +107,7 @@ class AddcategoryView(View):
         form_instance = CategoryForm()
         context = {'form': form_instance}
         return render(request, 'addcategory.html', context)
-@method_decorator(login_required,name="dispatch")
+@method_decorator(admin_required,name="dispatch")
 class AddproductView(View):
     def post(self,request):
         form_instance=ProductForm(request.POST,request.FILES)
